@@ -56,12 +56,12 @@ namespace Sparta_Dungeon
         public class ItemIndex
         {
             public List<Item> Itemindex { get; set; }
-            public bool Flag_buy { get; set; }
+            public bool Flag_Shopbuy { get; set; }
 
             public ItemIndex()
             {
                 Itemindex = new List<Item>() { new Armor1(), new Armor2(), new Armor3(), new Weaphon1(), new Weaphon2(), new Weaphon3() };
-                Flag_buy = false;
+                Flag_Shopbuy = false;
             }
         }
 
@@ -463,7 +463,7 @@ namespace Sparta_Dungeon
                 // 아이템 목록 불러오기
                 foreach (var item in Itemindex.Itemindex)
                 {
-                    if (!Itemindex.Flag_buy)
+                    if (!Itemindex.Flag_Shopbuy)
                     {
                         if (!item.flag_buy)
                         {
@@ -501,7 +501,7 @@ namespace Sparta_Dungeon
             }
 
             Console.WriteLine();
-            if (!Itemindex.Flag_buy)
+            if (!Itemindex.Flag_Shopbuy)
                 Console.WriteLine("1. 아이템 구매");
             Console.WriteLine("0. 나가기");
             Console.WriteLine();
@@ -509,7 +509,7 @@ namespace Sparta_Dungeon
             Console.Write(">> ");
             int input = int.Parse(Console.ReadLine());
 
-            if (!Itemindex.Flag_buy)
+            if (!Itemindex.Flag_Shopbuy)
             {
                 switch (input)
                 {
@@ -517,7 +517,7 @@ namespace Sparta_Dungeon
                         Init(player, Itemindex);
                         break;
                     case 1:
-                        Itemindex.Flag_buy = true;
+                        Itemindex.Flag_Shopbuy = true;
                         Shop(player, Itemindex);
                         break;
                     default:
@@ -530,7 +530,7 @@ namespace Sparta_Dungeon
             {
                 if (input == 0)
                 {
-                    Itemindex.Flag_buy = false;
+                    Itemindex.Flag_Shopbuy = false;
                     Init(player, Itemindex);
                 }
                 else
