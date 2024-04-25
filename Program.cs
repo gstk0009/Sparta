@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using static Sparta_Dungeon.Program;
 
 namespace Sparta_Dungeon
@@ -366,7 +367,7 @@ namespace Sparta_Dungeon
                 Item selectItem = player.UserItems.Find(item => item.flag_equip == true);
                 foreach (var item in player.UserItems)
                 {
-                    if (item.flag_equip == selectItem.flag_equip)
+                    if (item.flag_equip)
                     {
                         if (item.Number >= 1 && item.Number <= 3)
                         {
